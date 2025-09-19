@@ -1,27 +1,35 @@
 package com.example.demo.article.dto;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import com.example.demo.article.entity.Article;
+import lombok.Getter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Getter
 public class ArticleDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    private String subject;
+    private final Long id;
 
-    private String content;
+    private final String subject;
 
-    @CreatedDate
-    private LocalDate createDate;
+    private final String content;
 
-    @LastModifiedDate
-    private LocalDateTime modifyDate;
+    private final LocalDate createDate;
+
+    private final LocalDateTime modifyDate;
+
+    public ArticleDTO(Article article) {
+        this.id = article.getId();
+        this.subject = article.getSubject();
+        this.content = article.getContent();
+        this.createDate = article.getCreateDate();
+        this.modifyDate = article.getModifyDate();
+
+
+
+
+
+    }
 }
