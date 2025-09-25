@@ -1,5 +1,4 @@
-package com.example.demo.global;
-
+package com.example.demo.global.jpa;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -11,7 +10,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -26,10 +24,8 @@ public class BaseEntity {
     private Long id;
 
     @CreatedDate
-    private LocalDate createDate;
+    private LocalDateTime createdDate;
 
     @LastModifiedDate
-    private LocalDateTime modifyDate;
-
-
+    private LocalDateTime modifiedDate;
 }
